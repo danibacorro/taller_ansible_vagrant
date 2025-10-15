@@ -1,2 +1,7 @@
-- name: Actualizamos el sistema
-  apt: 
+- name: Actualizamos APT
+  apt:
+    update_cache: yes
+
+- name: Actualizamos sistema
+  apt:
+    upgrade: yes
