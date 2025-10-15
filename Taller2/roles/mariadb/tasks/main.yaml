@@ -16,3 +16,12 @@
   lineinfile: dest=/etc/mysql/mariadb.conf.d/50-server.cnf regexp="^bind-address            = 127.0.0.1" line="bind-address            = 0.0.0.0" state=present
   notify:
     - restart mariadb
+
+- name: aumenta el número máximo de conexiones en MariaDB
+  lineinfile:
+    path: /etc/mysql/mariadb.conf.d/50-server.cnf
+    regexp: '^max_connections'
+    line: 'max_connections = 200'
+    insertafter: '[mysqld]'
+  notify:
+    - restart mariadb
