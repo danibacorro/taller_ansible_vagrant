@@ -5,7 +5,7 @@
       - python3-mysqldb
 
 - name: create database wordpress
-  mysql_db: name={{ansible}} state=present
+  mysql_db: name={{wordpress}} state=present
 
 - name: create user mysql wordpress
   mysql_user: name={{dani}} host={{localhost}} password={{baco}} priv={{ansible}}.*:ALL,GRANT
